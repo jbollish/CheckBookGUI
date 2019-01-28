@@ -143,7 +143,7 @@ public class CheckBook extends JFrame {
 				label.setText(moneyString);
 				lblMessage.setText("");
 				textField.setText("");
-				if(checking.getBalance() < 0) {
+				if(checking.getBalance() < 0 && Input > 0) {
 					checking.processWithdrawal();
 					NumberFormat fmatter = NumberFormat.getCurrencyInstance(); //Thanks for showing how to format balance
 					String moneyString2 = fmatter.format(checking.getBalance());
@@ -152,7 +152,9 @@ public class CheckBook extends JFrame {
 				}
 				}
 				catch (Exception exception) { // used catch from your post on P10_11
-                    JOptionPane.showMessageDialog(null, "Not a number!", "Invalid input", JOptionPane.ERROR_MESSAGE); 
+                    JOptionPane.showMessageDialog(null, "Not a number!", "Invalid input", JOptionPane.ERROR_MESSAGE);
+                    textField.setText("");
+    				lblMessage.setText("");
                 }
 			}
 		});
